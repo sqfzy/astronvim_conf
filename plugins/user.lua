@@ -23,12 +23,4 @@ return {
       -- refer to the configuration section below
     },
   },
-  {
-    "adoyle-h/lsp-toggle.nvim",
-    cmd = { "ToggleLSP", "ToggleNullLSP" },
-    opts = {
-      create_cmds = true, -- Whether to create user commands
-      telescope = true, -- Whether to load telescope extensions
-    },
-  },
 }

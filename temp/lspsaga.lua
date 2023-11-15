@@ -1,6 +1,6 @@
 return {
   "glepnir/lspsaga.nvim",
-  event = "BufEnter",
+  event = "BufRead",
   dependencies = {
     { "nvim-tree/nvim-web-devicons" },
     --Please make sure you install markdown and markdown_inline parser
@@ -24,8 +24,7 @@ return {
         tabe = "t",
         quit = "q",
         shuttle = "[w",
-        -- toggle_or_open = "l",
-        toggle_or_req = "l",
+        toggle_or_req = "u",
         close = "<C-c>k",
       },
     },
@@ -51,7 +50,6 @@ return {
       filter = {},
       silent = false,
       keys = {
-        edit = "e",
         shuttle = "[w",
         toggle_or_open = "l",
         vsplit = "v",
@@ -66,7 +64,7 @@ return {
       width = 0.6,
       height = 0.5,
       keys = {
-        edit = "<C-c>e",
+        edit = "<C-c>o",
         vsplit = "<C-c>v",
         split = "<C-c>s",
         tabe = "<C-c>t",

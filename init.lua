@@ -1,5 +1,6 @@
 if vim.g.neovide then
-  vim.o.guifont = "Hack Nerd Font Mono:h15"
+  -- vim.o.guifont = "Hack Nerd Font Mono:h15"
+  vim.o.guifont = "0xProto:h14"
   vim.g.neovide_transparency = 0.8
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_theme = "auto"
