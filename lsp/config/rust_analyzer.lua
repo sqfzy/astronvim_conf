@@ -1,7 +1,12 @@
 return {
   settings = {
     ["rust-analyzer"] = {
+
       ["imports.granularity.enforce"] = true,
+      check = {
+        ignore = _G.isDayTime and {} or { "dead_code", "unused_imports", "unused_variables" },
+        -- { "dead_code", "unused_imports" },
+      },
       checkOnSave = {
         command = "clippy",
       },
@@ -61,10 +66,34 @@ return {
         },
       },
       inlayHints = {
-        ["bindingModeHints.enable"] = true, -- show "mut"
-        ["closureCaptureHints.enable"] = true,
-        ["closureReturnTypeHints.enable"] = true,
-        -- ["closingBraceHints.minLines"] = 0 -- use to test it whether work
+        closureCaptureHints = {
+          enable = true,
+        },
+        discriminantHints = {
+          enable = true,
+        },
+        expressionAdjustmentHints = {
+          enable = true,
+        },
+        lifetimeElisionHints = {
+          enable = true,
+        },
+      },
+      lens = {
+        references = {
+          adt = {
+            -- enable = true,
+          },
+          enumVariant = {
+            -- enable = true,
+          },
+          method = {
+            -- enable = true,
+          },
+          trait = {
+            -- enable = true,
+          },
+        },
       },
       hover = {
         memoryLayout = {
