@@ -8,8 +8,8 @@ if _G.isDayTime then
   -- return "astrolight"
 else
   -- return "rose-pine-moon"
-  return "tokyonight-moon"
+  -- return "tokyonight-moon"
   -- return "duskfox"
-  -- return "catppuccin-macchiato"
+  return "catppuccin-macchiato"
   -- return "astrodark"
 end

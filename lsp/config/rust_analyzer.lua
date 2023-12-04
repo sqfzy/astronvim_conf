@@ -72,9 +72,9 @@ return {
         discriminantHints = {
           enable = true,
         },
-        expressionAdjustmentHints = {
-          enable = true,
-        },
+        -- expressionAdjustmentHints = {
+        --   enable = true,
+        -- },
         lifetimeElisionHints = {
           enable = true,
         },
