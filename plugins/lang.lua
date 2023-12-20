@@ -11,8 +11,8 @@ return {
       -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
       on_initialized = function()
         -- vim.notify "Callback to run when the LSP client is ready"
-        vim.lsp.inlay_hint(0, false)
-        vim.lsp.inlay_hint(0, true)
+        vim.lsp.inlay_hint.enable(0, false)
+        vim.lsp.inlay_hint.enable(0, true)
       end,
 
       -- automatically call RustReloadWorkspace when writing to a Cargo.toml file.

@@ -39,7 +39,7 @@ return {
             ["cmp.entry.get_documentation"] = true,
           },
           hover = {
-            enabled = true,
+            enabled = false,
             silent = false, -- set to true to not show a message if hover is not available
             view = nil, -- when nil, use defaults from documentation
             ---@type NoiceViewOptions
@@ -92,7 +92,16 @@ return {
           inc_rename = utils.is_available "inc-rename.nvim", -- enables an input dialog for inc-rename.nvim
           lsp_doc_border = false, -- add a border to hover docs and signature help
         },
-        routes = {},
+        routes = {
+          {
+            filter = {
+              event = "",
+              kind = "",
+              find = "in function 'assert'",
+            },
+            opts = { skip = true },
+          },
+        },
       })
     end,
     init = function() vim.g.lsp_handlers_enabled = false end,

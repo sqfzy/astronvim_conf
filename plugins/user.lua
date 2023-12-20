@@ -23,4 +23,11 @@ return {
       -- refer to the configuration section below
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, opts)
+      opts.defaults.winblend = 00
+      return opts
+    end,
+  },
 }

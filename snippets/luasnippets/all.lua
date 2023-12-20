@@ -1,4 +1,6 @@
--- local s = ls.snippet
+local ls = require "luasnip"
+local s = ls.snippet
+local t = ls.text_node -- 文本节点
 -- local i = ls.insert_node -- 插入节点
 -- local t = ls.text_node -- 文本节点
 -- local f = ls.function_node -- 返回字符串
@@ -7,9 +9,16 @@
 -- local fmta = require("luasnip.extras.fmt").fmta
 -- local calculate_comment_string = require("Comment.ft").calculate
 -- local utils = require "Comment.utils"
-local ls = require "luasnip"
 ls.config.setup {
   enable_autosnippets = true,
+}
+
+return {
+  s({ trig = "// todo", snippetType = "autosnippet" }, t "// TODO: "),
+  s({ trig = "// info", snippetType = "autosnippet" }, t "// INFO: "),
+  s({ trig = "// warn", snippetType = "autosnippet" }, t "// WARN: "),
+  s({ trig = "// fix", snippetType = "autosnippet" }, t "// FIX: "),
+  s({ trig = "// bug", snippetType = "autosnippet" }, t "// BUG: "),
 }
 
 --

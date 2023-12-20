@@ -1,4 +1,4 @@
-local ls = require "luasnip", auuto
+local ls = require "luasnip"
 local extras = require "luasnip.extras"
 local s = ls.snippet
 local t = ls.text_node -- 文本节点
@@ -9,11 +9,6 @@ local l = extras.lambda
 local f = ls.function_node -- 返回字符串
 
 return {
-  s({ trig = "// todo", snippetType = "autosnippet" }, t "// TODO: "),
-  s({ trig = "// info", snippetType = "autosnippet" }, t "// INFO: "),
-  s({ trig = "// warn", snippetType = "autosnippet" }, t "// WARN: "),
-  s({ trig = "// fix", snippetType = "autosnippet" }, t "// FIX: "),
-  s({ trig = "// bug", snippetType = "autosnippet" }, t "// BUG: "),
   -- s({ trig = "foo", snippetType = "autosnippet" }, t "this is a autosnippet"),
 
   s({

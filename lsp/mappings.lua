@@ -1,7 +1,8 @@
 return {
   n = {
     -- this mapping will only be set in buffers with an LSP attached
-    K = {
+    K = false,
+    ["<A-k>"] = {
       function()
         local filetype = vim.bo.filetype
         if vim.tbl_contains({ "vim", "help" }, filetype) then

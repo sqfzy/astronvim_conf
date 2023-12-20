@@ -7,10 +7,15 @@ local utils = require "astronvim.utils"
 local is_available = utils.is_available
 return {
   n = {
-    ["<A-j>"] = { ":m .+1<CR>==" },
-    ["<A-k>"] = { ":m .-2<CR>==" },
-    ["L"] = { "$" },
-    ["H"] = { "^" },
+    ["<A-S-j>"] = { ":m .+1<CR>==" },
+    ["<A-S-k>"] = { ":m .-2<CR>==" },
+    ["<A-j>"] = { "J" },
+    -- ["L"] = { "$" },
+    -- ["H"] = { "^" },
+    ["L"] = { "5l" },
+    ["H"] = { "5h" },
+    ["J"] = { "5j" },
+    ["K"] = { "5k" },
     ["c"] = { '"dc' },
     ["s"] = { '"ds' },
     ["<C-d>"] = { "10j" },
@@ -31,8 +36,8 @@ return {
     ["D"] = { '"_D' },
     ["dL"] = { '"_d$' },
     ["dH"] = { '"_d^' },
-    ["E"] = { "ea<Space>" },
-    ["B"] = { "bi<Space><Left>" },
+    -- ["E"] = { "ea<Space>" },
+    -- ["B"] = { "bi<Space><Left>" },
     ["mj"] = { "mJ" },
     ["mk"] = { "mK" },
     ["gj"] = { "`J" },
@@ -155,9 +160,9 @@ return {
     ["<leader>n"] = { name = "Neo tree" },
     ["<leader>nh"] = { "<cmd>Neotree ~/<CR>", desc = "Home" },
     -- ["<leader>ns"] = { "<cmd>Neotree ~/share/code_my/<CR>", desc = "shared code dir" },
-    ["<leader>nc"] = { "<cmd>Neotree ~/work_space/<CR>", desc = "code dir" },
-    ["<leader>nC"] = { "<cmd>Neotree share/work_space/<CR>", desc = "code dir" },
-    ["<leader>na"] = { "<cmd>Neotree ~/.config/nvim/lua/<CR>", desc = "astronvim dir" },
+    ["<leader>nc"] = { "<cmd>Neotree ~/Important/work_space/<CR>", desc = "code dir" },
+    -- ["<leader>nC"] = { "<cmd>Neotree share/work_space/<CR>", desc = "code dir" },
+    ["<leader>na"] = { "<cmd>Neotree ~/AppData/Local/nvim/lua/<CR>", desc = "astronvim dir" },
 
     ["<leader>r"] = { name = "Rust" },
     ["<leader>rr"] = { "<cmd>RustRunnables<CR>", desc = "Runnables" },
@@ -204,9 +209,9 @@ return {
   },
   i = {
     -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-j>"] = { "<Esc>:m .+1<CR>==gi" },
+    ["<A-S-j>"] = { "<Esc>:m .+1<CR>==gi" },
     -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-k>"] = { "<Esc>:m .-2<CR>==gi" },
+    ["<A-S-k>"] = { "<Esc>:m .-2<CR>==gi" },
     -- navigation
     ["<A-Up>"] = { "<C-\\><C-N><C-w>k" },
     ["<A-Down>"] = { "<C-\\><C-N><C-w>j" },
@@ -241,11 +246,15 @@ return {
     ["<A-l>"] = { "<cmd>lua require('luasnip').jump(1)<Cr>" },
   },
   v = {
-    ["<A-j>"] = { ":m '>+1<CR>gv-gv" },
-    ["<A-k>"] = { ":m '<-2<CR>gv-gv" },
+    ["<A-S-j>"] = { ":m '>+1<CR>gv-gv" },
+    ["<A-S-k>"] = { ":m '<-2<CR>gv-gv" },
 
-    ["H"] = { "^" },
-    ["L"] = { "$" },
+    -- ["H"] = { "^" },
+    -- ["L"] = { "$" },
+    ["H"] = { "5h" },
+    ["L"] = { "5l" },
+    ["J"] = { "5j" },
+    ["K"] = { "5k" },
     ["<C-a>"] = { "<ESC>gg" }, --取消全选
     ["<A-a>"] = { "<C-a>" },
     ["ty"] = { '"ty' },

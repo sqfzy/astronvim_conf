@@ -16,7 +16,7 @@ return {
     t { "", "#include <stdlib.h>" },
     t { "", "", "int main(int argc, char *argv[]) {" },
     t { "", "  " },
-    i(1), -- 在此处开始写,顺序为1,2,3...n,0
+    i(1, "//"), -- 在此处开始写,顺序为1,2,3...n,0
     t { "", "", "  return EXIT_SUCCESS;" },
     t { "", "}" },
   }),

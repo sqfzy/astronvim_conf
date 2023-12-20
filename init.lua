@@ -1,16 +1,28 @@
 if vim.g.neovide then
-  -- vim.o.guifont = "Hack Nerd Font Mono:h15"
-  vim.o.guifont = "0xProto:h14"
-  vim.g.neovide_transparency = 0.8
+  -- vim.o.guifont = "Hack Nerd Font:h12"
+  vim.o.guifont = "0xProto,Hack_Nerd_Font:h12"
+  vim.g.neovide_transparency = 0.85
   vim.g.neovide_hide_mouse_when_typing = true
-  vim.g.neovide_theme = "auto"
+  -- vim.g.neovide_theme = "auto"
   vim.g.neovide_refresh_rate = 60
   vim.g.neovide_confirm_quit = true
-  -- vim.g.neovide_fullscreen = true
+  vim.g.neovide_fullscreen = true
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_cursor_animation_length = 0.05
   vim.g.neovide_cursor_trail_size = 0.5
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
+
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_refresh_rate = 60
+  vim.g.neovide_refresh_rate_idle = 5
+  vim.g.neovide_no_idle = true
+  vim.g.neovide_confirm_quit = true
+  vim.g.neovide_input_use_logo = true
+
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
 end
 
 return {
