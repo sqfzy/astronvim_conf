@@ -30,4 +30,14 @@ return {
       return opts
     end,
   },
+  -- {
+  --   "nanotee/sqls.nvim",
+  --   lazy = false,
+  --   filetype = "sql",
+  --   config = function()
+  --     require("lspconfig").sqls.setup {
+  --       on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
+  --     }
+  --   end,
+  -- },
 }
