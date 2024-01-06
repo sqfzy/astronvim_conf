@@ -7,11 +7,8 @@ local utils = require "astronvim.utils"
 local is_available = utils.is_available
 return {
   n = {
-    ["<A-S-j>"] = { ":m .+1<CR>==" },
-    ["<A-S-k>"] = { ":m .-2<CR>==" },
-    ["<A-j>"] = { "J" },
-    -- ["L"] = { "$" },
-    -- ["H"] = { "^" },
+    ["<A-j>"] = { ":m .+1<CR>==" },
+    ["<A-k>"] = { ":m .-2<CR>==" },
     ["L"] = { "5l" },
     ["H"] = { "5h" },
     ["J"] = { "5j" },
@@ -36,8 +33,8 @@ return {
     ["D"] = { '"_D' },
     ["dL"] = { '"_d$' },
     ["dH"] = { '"_d^' },
-    -- ["E"] = { "ea<Space>" },
-    -- ["B"] = { "bi<Space><Left>" },
+    ["E"] = { "ea<Space>" },
+    ["B"] = { "bi<Space><Left>" },
     ["mj"] = { "mJ" },
     ["mk"] = { "mK" },
     ["gj"] = { "`J" },
@@ -110,14 +107,30 @@ return {
     ["<A-4>"] = {
       function()
         local dir = tostring(vim.fn.expand "%:p:h")
-        require("toggleterm").exec("cd " .. dir, 3, nil, nil, "float", "Term3", false, true)
+        require("toggleterm").exec("cd " .. dir .. " & zsh", 3, nil, nil, "float", "Term3", false, true)
       end,
       desc = "ToggleTerm current dir",
     },
-    ["<A-5>"] = { "<cmd>4ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal split" },
-    ["<A-3>"] = { "<cmd>3ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
-    ["<A-2>"] = { "<cmd>2ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal split" },
-    ["<A-1>"] = { "<cmd>1ToggleTerm size=50 direction=vertical<CR>", desc = "ToggleTerm vertical split" },
+    ["<A-5>"] = {
+      -- "<cmd>4ToggleTerm size=10 direction=horizontal<CR>",
+      function() require("toggleterm").exec("zsh", 4, 10, nil, "horizontal", "Term4", false, true) end,
+      desc = "ToggleTerm horizontal split",
+    },
+    ["<A-3>"] = {
+      -- "<cmd>3ToggleTerm direction=float<CR>",
+      function() require("toggleterm").exec("zsh", 3, nil, nil, "float", "Term3", false, true) end,
+      desc = "ToggleTerm float",
+    },
+    ["<A-2>"] = {
+      -- "<cmd>2ToggleTerm size=10 direction=horizontal<CR>",
+      function() require("toggleterm").exec("zsh", 2, 10, nil, "horizontal", "Term2", false, true) end,
+      desc = "ToggleTerm horizontal split",
+    },
+    ["<A-1>"] = {
+      -- "<cmd>1ToggleTerm size=50 direction=vertical<CR>",
+      function() require("toggleterm").exec("zsh", 1, 50, nil, "vertical", "Term1", false, true) end,
+      desc = "ToggleTerm vertical split",
+    },
 
     ----------------------------- which key ------------------------------------------
     ["<leader>w"] = { "<cmd>lua vim.lsp.buf.format()<cr><cmd>w!<cr>", desc = "Save with format" },
@@ -160,9 +173,9 @@ return {
     ["<leader>n"] = { name = "Neo tree" },
     ["<leader>nh"] = { "<cmd>Neotree ~/<CR>", desc = "Home" },
     -- ["<leader>ns"] = { "<cmd>Neotree ~/share/code_my/<CR>", desc = "shared code dir" },
-    ["<leader>nc"] = { "<cmd>Neotree ~/Important/work_space/<CR>", desc = "code dir" },
-    -- ["<leader>nC"] = { "<cmd>Neotree share/work_space/<CR>", desc = "code dir" },
-    ["<leader>na"] = { "<cmd>Neotree ~/AppData/Local/nvim/lua/<CR>", desc = "astronvim dir" },
+    ["<leader>nc"] = { "<cmd>Neotree ~/work_space/<CR>", desc = "code dir" },
+    ["<leader>nC"] = { "<cmd>Neotree share/work_space/<CR>", desc = "code dir" },
+    ["<leader>na"] = { "<cmd>Neotree ~/.config/nvim/lua/<CR>", desc = "astronvim dir" },
 
     ["<leader>r"] = { name = "Rust" },
     ["<leader>rr"] = { "<cmd>RustRunnables<CR>", desc = "Runnables" },
@@ -209,9 +222,9 @@ return {
   },
   i = {
     -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-S-j>"] = { "<Esc>:m .+1<CR>==gi" },
+    ["<A-j>"] = { "<Esc>:m .+1<CR>==gi" },
     -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-S-k>"] = { "<Esc>:m .-2<CR>==gi" },
+    ["<A-k>"] = { "<Esc>:m .-2<CR>==gi" },
     -- navigation
     ["<A-Up>"] = { "<C-\\><C-N><C-w>k" },
     ["<A-Down>"] = { "<C-\\><C-N><C-w>j" },
@@ -246,15 +259,11 @@ return {
     ["<A-l>"] = { "<cmd>lua require('luasnip').jump(1)<Cr>" },
   },
   v = {
-    ["<A-S-j>"] = { ":m '>+1<CR>gv-gv" },
-    ["<A-S-k>"] = { ":m '<-2<CR>gv-gv" },
+    ["<A-j>"] = { ":m '>+1<CR>gv-gv" },
+    ["<A-k>"] = { ":m '<-2<CR>gv-gv" },
 
-    -- ["H"] = { "^" },
-    -- ["L"] = { "$" },
-    ["H"] = { "5h" },
-    ["L"] = { "5l" },
-    ["J"] = { "5j" },
-    ["K"] = { "5k" },
+    ["H"] = { "^" },
+    ["L"] = { "$" },
     ["<C-a>"] = { "<ESC>gg" }, --取消全选
     ["<A-a>"] = { "<C-a>" },
     ["ty"] = { '"ty' },
