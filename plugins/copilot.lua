@@ -54,4 +54,10 @@ return {
     copilot_node_command = "node", -- Node.js version must be > 16.x
     server_opts_overrides = {},
   },
+  keys = {
+    {"<leader>c" ,   desc = "Copilot" },
+    {"<leader>ce",    "<cmd>Copilot disable<CR>", desc = "Copilot disable" },
+    {"<leader>cb",    "<cmd>Copilot enable<CR>", desc = "Copilot enable" },
+    {"<leader>cE",    "<cmd>lua require('copilot.suggestion').dismiss()<cr>", desc = "Copilot dismiss" },
+  }
 }

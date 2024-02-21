@@ -4,7 +4,8 @@ return {
 
       ["imports.granularity.enforce"] = true,
       check = {
-        ignore = _G.isDayTime and {} or { "dead_code", "unused_imports", "unused_variables" },
+        -- ignore = (_G.isMoon and vim.cmd "colorscheme" == "tokyonight") and {}
+        --   or { "dead_code", "unused_imports", "unused_variables" },
         -- { "dead_code", "unused_imports" },
       },
       checkOnSave = {

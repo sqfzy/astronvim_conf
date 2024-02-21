@@ -55,5 +55,52 @@ return {
         highlight = "Comment",
       },
     }
+    -- maps.n["<leader>r"] = { name = "Rust" }
+    -- maps.n["<leader>rr"] = { "<cmd>RustRunnables<CR>", desc = "Runnables" }
+    -- maps.n["<leader>rm"] = { "<cmd>RustExpandMacro<CR>", desc = "Expand Macro" }
+    -- maps.n["<leader>rc"] = { "<cmd>RustOpenCargo<CR>", desc = "Open Cargo" }
+    -- maps.n["<leader>rd"] = { "<cmd>RustDebuggables<CR>", desc = "Debuggables" }
+    -- maps.n["<leader>rR"] = { "<cmd>lua require('crates').reload<CR>", desc = "Reload" }
+    -- maps.n["<leader>rv"] = { "<cmd>lua require('crates').show_versions_popup<CR>", desc = "Show Versions" }
+    -- maps.n["<leader>rf"] = { "<cmd>lua require('crates').show_features_popup<CR>", desc = "Show Features" }
+    -- maps.n["<leader>rD"] = { "<cmd>lua require('crates').show_dependencies_popup<CR>", desc = "Show Dependencies" }
+    -- maps.n["<leader>ru"] = { "<cmd>lua require('crates').update_crate<CR>", desc = "Update Crate" }
+    -- maps.n["<leader>ra"] = { "<cmd>lua require('crates').update_all_crates<CR>", desc = "Update All Crates" }
+    -- maps.n["<leader>rU"] = { "<cmd>lua require('crates').upgrade_crate<CR>", desc = "Upgrade Crate" }
+    -- maps.n["<leader>rA"] = { "<cmd>lua require('crates').upgrade_all_crates<CR>", desc = "Upgrade All Crates" }
+    -- maps.n["<leader>re"] = { "<cmd>lua require('crates').expand_plain_crate_to_inline_table<CR>", desc = "Expand Crate" }
+    -- maps.n["<leader>rE"] = { "<cmd>lua require('crates').extract_crate_into_table<CR>", desc = "Extract Crate" }
+    -- maps.n["<leader>rt"] = {
+    --   function()
+    --     require("toggleterm").exec(
+    --       "cargo nextest run " .. vim.api.nvim_eval 'expand("<cword>")',
+    --       2,
+    --       10,
+    --       tostring(vim.fn.expand "%:p:h"),
+    --       "horizontal",
+    --       "rust test",
+    --       false,
+    --       true
+    --     )
+    --   end,
+    --   desc = "Cargo Nextest",
+    -- }
   end,
+    keys = {
+      { "<leader>r", "<cmd>RustRunnables<CR>", desc = "Rust" },
+      { "<leader>rr", "<cmd>RustRunnables<CR>", desc = "Runnables" },
+      { "<leader>rm", "<cmd>RustExpandMacro<CR>", desc = "Expand Macro" },
+      { "<leader>rc", "<cmd>RustOpenCargo<CR>", desc = "Open Cargo" },
+      { "<leader>rd", "<cmd>RustDebuggables<CR>", desc = "Debuggables" },
+      { "<leader>rR", "<cmd>lua require('crates').reload<CR>", desc = "Reload" },
+      { "<leader>rv", "<cmd>lua require('crates').show_versions_popup<CR>", desc = "Show Versions" },
+      { "<leader>rf", "<cmd>lua require('crates').show_features_popup<CR>", desc = "Show Features" },
+      { "<leader>rD", "<cmd>lua require('crates').show_dependencies_popup<CR>", desc = "Show Dependencies" },
+      { "<leader>ru", "<cmd>lua require('crates').update_crate<CR>", desc = "Update Crate" },
+      { "<leader>ra", "<cmd>lua require('crates').update_all_crates<CR>", desc = "Update All Crates" },
+      { "<leader>rU", "<cmd>lua require('crates').upgrade_crate<CR>", desc = "Upgrade Crate" },
+      { "<leader>rA", "<cmd>lua require('crates').upgrade_all_crates<CR>", desc = "Upgrade All Crates" },
+      { "<leader>re", "<cmd>lua require('crates').expand_plain_crate_to_inline_table<CR>", desc = "Expand Crate" },
+      { "<leader>rE", "<cmd>lua require('crates').extract_crate_into_table<CR>", desc = "Extract Crate" }
+    },
 }

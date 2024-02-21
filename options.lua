@@ -13,6 +13,8 @@ return {
     cursorline = false,
     -- clipboard = "unnamed",
     clipboard = "unnamed,unnamedplus",
+    -- guifont = "0xProto_Nerd_Font,Hack_Nerd_Font:h14", -- font name in linux
+    guifont = "0xProto,Hack_Nerd_Font:h12", -- font name in windows
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

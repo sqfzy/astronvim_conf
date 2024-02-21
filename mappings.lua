@@ -163,50 +163,12 @@ return {
     ["<leader>tt"] = { "<cmd>ToggleTerm direction=tab<CR>", desc = "New term tab" },
     ["<leader>fH"] = { "<cmd>Telescope highlights<CR>", desc = "Find highlight" },
 
-    ["<leader>c"] = { name = "Copilot" },
-    ["<leader>ce"] = { "<cmd>Copilot disable<CR>", desc = "Copilot disable" },
-    ["<leader>cb"] = { "<cmd>Copilot enable<CR>", desc = "Copilot enable" },
-    ["<leader>cE"] = { "<cmd>lua require('copilot.suggestion').dismiss()<cr>", desc = "Copilot dismiss" },
-    ["<leader>lS"] = false,
-    ["<leader>o"] = { function() require("aerial").toggle() end, desc = "Symbols outline" },
-
     ["<leader>n"] = { name = "Neo tree" },
     ["<leader>nh"] = { "<cmd>Neotree ~/<CR>", desc = "Home" },
     -- ["<leader>ns"] = { "<cmd>Neotree ~/share/code_my/<CR>", desc = "shared code dir" },
     ["<leader>nc"] = { "<cmd>Neotree ~/work_space/<CR>", desc = "code dir" },
     ["<leader>nC"] = { "<cmd>Neotree share/work_space/<CR>", desc = "code dir" },
     ["<leader>na"] = { "<cmd>Neotree ~/.config/nvim/lua/<CR>", desc = "astronvim dir" },
-
-    ["<leader>r"] = { name = "Rust" },
-    ["<leader>rr"] = { "<cmd>RustRunnables<CR>", desc = "Runnables" },
-    ["<leader>rm"] = { "<cmd>RustExpandMacro<CR>", desc = "Expand Macro" },
-    ["<leader>rc"] = { "<cmd>RustOpenCargo<CR>", desc = "Open Cargo" },
-    ["<leader>rd"] = { "<cmd>RustDebuggables<CR>", desc = "Debuggables" },
-    ["<leader>rR"] = { "<cmd>lua require('crates').reload<CR>", desc = "Reload" },
-    ["<leader>rv"] = { "<cmd>lua require('crates').show_versions_popup<CR>", desc = "Show Versions" },
-    ["<leader>rf"] = { "<cmd>lua require('crates').show_features_popup<CR>", desc = "Show Features" },
-    ["<leader>rD"] = { "<cmd>lua require('crates').show_dependencies_popup<CR>", desc = "Show Dependencies" },
-    ["<leader>ru"] = { "<cmd>lua require('crates').update_crate<CR>", desc = "Update Crate" },
-    ["<leader>ra"] = { "<cmd>lua require('crates').update_all_crates<CR>", desc = "Update All Crates" },
-    ["<leader>rU"] = { "<cmd>lua require('crates').upgrade_crate<CR>", desc = "Upgrade Crate" },
-    ["<leader>rA"] = { "<cmd>lua require('crates').upgrade_all_crates<CR>", desc = "Upgrade All Crates" },
-    ["<leader>re"] = { "<cmd>lua require('crates').expand_plain_crate_to_inline_table<CR>", desc = "Expand Crate" },
-    ["<leader>rE"] = { "<cmd>lua require('crates').extract_crate_into_table<CR>", desc = "Extract Crate" },
-    ["<leader>rt"] = {
-      function()
-        require("toggleterm").exec(
-          "cargo nextest run " .. vim.api.nvim_eval 'expand("<cword>")',
-          2,
-          10,
-          tostring(vim.fn.expand "%:p:h"),
-          "horizontal",
-          "rust test",
-          false,
-          true
-        )
-      end,
-      desc = "Cargo Nextest",
-    },
 
     -- ["<leader>tf"] = false,
     -- ["<leader>th"] = false,
