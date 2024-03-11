@@ -87,7 +87,7 @@ return {
     -- }
   end,
     keys = {
-      { "<leader>r", "<cmd>RustRunnables<CR>", desc = "Rust" },
+      { "<leader>r", desc = "Rust" },
       { "<leader>rr", "<cmd>RustRunnables<CR>", desc = "Runnables" },
       { "<leader>rm", "<cmd>RustExpandMacro<CR>", desc = "Expand Macro" },
       { "<leader>rc", "<cmd>RustOpenCargo<CR>", desc = "Open Cargo" },

@@ -7,8 +7,9 @@ local utils = require "astronvim.utils"
 local is_available = utils.is_available
 return {
   n = {
-    ["<A-j>"] = { ":m .+1<CR>==" },
-    ["<A-k>"] = { ":m .-2<CR>==" },
+    ["<A-S-j>"] = { ":m .+1<CR>==" },
+    ["<A-S-k>"] = { ":m .-2<CR>==" },
+    ["<A-j>"] = { "<S-j>" },
     ["L"] = { "5l" },
     ["H"] = { "5h" },
     ["J"] = { "5j" },
@@ -99,7 +100,7 @@ return {
     [","] = { "N" },
     ["<A-Down>"] = { "O<Esc>" },
     ["<A-Up>"] = { "o<Esc>" },
-    ["q"] = { "<ESC>" }, -- 'q' make autopairs not work
+    -- ["q"] = { "<ESC>" }, -- 'q' make autopairs not work
     ["<Enter>"] = "mto<Esc>`t",
     ["<A-7>"] = "mtbi&<Esc>`t",
     ["<A-8>"] = "mtbi*<Esc>`t",
@@ -112,23 +113,23 @@ return {
       desc = "ToggleTerm current dir",
     },
     ["<A-5>"] = {
-      -- "<cmd>4ToggleTerm size=10 direction=horizontal<CR>",
-      function() require("toggleterm").exec("zsh", 4, 10, nil, "horizontal", "Term4", false, true) end,
+      "<cmd>4ToggleTerm size=10 direction=horizontal<CR>",
+      -- function() require("toggleterm").exec("zsh", 4, 10, nil, "horizontal", "Term4", false, true) end,
       desc = "ToggleTerm horizontal split",
     },
     ["<A-3>"] = {
-      -- "<cmd>3ToggleTerm direction=float<CR>",
-      function() require("toggleterm").exec("zsh", 3, nil, nil, "float", "Term3", false, true) end,
+      "<cmd>3ToggleTerm direction=float<CR>",
+      -- function() require("toggleterm").exec("zsh", 3, nil, nil, "float", "Term3", false, true) end,
       desc = "ToggleTerm float",
     },
     ["<A-2>"] = {
-      -- "<cmd>2ToggleTerm size=10 direction=horizontal<CR>",
-      function() require("toggleterm").exec("zsh", 2, 10, nil, "horizontal", "Term2", false, true) end,
+      "<cmd>2ToggleTerm size=10 direction=horizontal<CR>",
+      -- function() require("toggleterm").exec("zsh", 2, 10, nil, "horizontal", "Term2", false, true) end,
       desc = "ToggleTerm horizontal split",
     },
     ["<A-1>"] = {
-      -- "<cmd>1ToggleTerm size=50 direction=vertical<CR>",
-      function() require("toggleterm").exec("zsh", 1, 50, nil, "vertical", "Term1", false, true) end,
+      "<cmd>1ToggleTerm size=50 direction=vertical<CR>",
+      -- function() require("toggleterm").exec("zsh", 1, 50, nil, "vertical", "Term1", false, true) end,
       desc = "ToggleTerm vertical split",
     },
 
@@ -181,6 +182,8 @@ return {
 
     ["<leader>lt"] = { "<cmd>ToggleLSP<CR>", desc = "LSP toggle" },
     ["<leader>lT"] = { "<cmd>ToggleNullLSP<CR>", desc = "Null-ls toggle" },
+
+    ["<leader>o"] = { function() require("aerial").toggle() end, desc = "Symbols outline" },
   },
   i = {
     -- Move current line / block with Alt-j/k ala vscode.
@@ -221,11 +224,13 @@ return {
     ["<A-l>"] = { "<cmd>lua require('luasnip').jump(1)<Cr>" },
   },
   v = {
-    ["<A-j>"] = { ":m '>+1<CR>gv-gv" },
-    ["<A-k>"] = { ":m '<-2<CR>gv-gv" },
+    ["<A-S-j>"] = { ":m '>+1<CR>gv-gv" },
+    ["<A-S-k>"] = { ":m '<-2<CR>gv-gv" },
 
-    ["H"] = { "^" },
-    ["L"] = { "$" },
+    ["L"] = { "5l" },
+    ["H"] = { "5h" },
+    ["J"] = { "5j" },
+    ["K"] = { "5k" },
     ["<C-a>"] = { "<ESC>gg" }, --取消全选
     ["<A-a>"] = { "<C-a>" },
     ["ty"] = { '"ty' },
@@ -250,14 +255,14 @@ return {
       "Dk<Esc>p",
       desc = "Delete and Paste",
     },
-
-    ["<leader>r"] = { name = "Rust" },
-    ["<leader>ru"] = { "<cmd>lua require('crates').update_crates<CR>", desc = "Update Crate" },
-    ["<leader>rU"] = { "<cmd>lua require('crates').upgrade_crates<CR>", desc = "Upgrade Crate" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- Better indenting
+    ["L"] = { "5l" },
+    ["H"] = { "5h" },
+    ["J"] = { "5j" },
+    ["K"] = { "5k" },
     ["<A-4>"] = { function() require("toggleterm").exec("exit", 3) end, desc = "ToggleTerm float" },
     ["<A-3>"] = { "<cmd>3ToggleTerm direction=float<cr>", desc = "ToggleTerm float" },
     ["<A-2>"] = { "<cmd>2ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" },

@@ -9,7 +9,9 @@ return {
         -- { "dead_code", "unused_imports" },
       },
       checkOnSave = {
+        allFeatures = true,
         command = "clippy",
+        extraArgs = { "--no-deps" },
       },
       completion = {
         snippets = {

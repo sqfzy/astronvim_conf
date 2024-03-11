@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.html-css" },
-  -- { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python" },
   -- { import = "astrocommunity.pack.typescript-all-in-one" },
   -- { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.toml" },

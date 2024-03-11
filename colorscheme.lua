@@ -58,10 +58,10 @@ local function random_sheme(dawns, days, dusks, nights)
   return dispatch_theme_by_time(dawn, day, dusk, night)
 end
 
-return random_sheme(
-  { "tokyonight-day", "catppuccin-latte", "dawnfox", "rose-pine-dawn" },
-  { "tokyonight-day", "catppuccin-latte", "dayfox", "rose-pine-dawn" },
-  { "tokyonight-moon", "catppuccin-macchiato", "duskfox", "rose-pine-moon" },
-  { "tokyonight-night", "catppuccin-mocha", "nightfox", "rose-pine-main" }
-)
--- return choose_sheme("catppuccin")
+-- return random_sheme(
+--   { "tokyonight-day", "catppuccin-latte", "dawnfox", "rose-pine-dawn" },
+--   { "tokyonight-day", "catppuccin-latte", "dayfox", "rose-pine-dawn" },
+--   { "tokyonight-moon", "catppuccin-macchiato", "duskfox", "rose-pine-moon" },
+--   { "tokyonight-night", "catppuccin-mocha", "nightfox", "rose-pine-main" }
+-- )
+return choose_sheme("tokyonight")
