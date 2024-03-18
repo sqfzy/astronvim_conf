@@ -13,7 +13,7 @@ return {
           require("crates").show_popup()
           -- elseif vim.fn.expand "%:e" == "rs" then
           --   vim.cmd "RustHoverActions"
-          -- else
+        else
           vim.lsp.buf.hover()
         end
       end,
