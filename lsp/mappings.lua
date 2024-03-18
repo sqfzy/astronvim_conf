@@ -11,9 +11,9 @@ return {
           vim.cmd("Man " .. vim.fn.expand "<cword>")
         elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
           require("crates").show_popup()
-        elseif vim.fn.expand "%:e" == "rs" then
-          vim.cmd "RustHoverActions"
-        else
+          -- elseif vim.fn.expand "%:e" == "rs" then
+          --   vim.cmd "RustHoverActions"
+          -- else
           vim.lsp.buf.hover()
         end
       end,
