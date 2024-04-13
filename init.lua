@@ -59,8 +59,8 @@ return {
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         "lua_ls",
         "rust_analyzer",
-        "tsserver",
-        "denols",
+        -- "tsserver",
+        -- "denols",
         "pyright",
         "html",
       },
@@ -72,7 +72,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-      "tsserver",
+      -- "tsserver",
       -- "asm_lsp",
       -- "html",
       -- "cssls",

@@ -19,6 +19,9 @@ return {
   s({ trig = "// warn", snippetType = "autosnippet" }, t "// WARN: "),
   s({ trig = "// fix", snippetType = "autosnippet" }, t "// FIX: "),
   s({ trig = "// bug", snippetType = "autosnippet" }, t "// BUG: "),
+  s({ trig = "// perf", snippetType = "autosnippet" }, t "// PERF: "),
+  s({ trig = "// test", snippetType = "autosnippet" }, t "// TEST: "),
+  s({ trig = "// /", snippetType = "autosnippet" }, t "///"),
 }
 
 --

@@ -3,9 +3,9 @@ local function dispatch_theme_by_time(dawn, day, dusk, night)
 
   if hr > 6 and hr <= 9 then
     return dawn
-  elseif hr > 9 and hr <= 17 then
+  elseif hr > 9 and hr <= 16 then
     return day
-  elseif hr > 17 and hr <= 20 then
+  elseif hr > 16 and hr <= 21 then
     _G.isMoon = true
     return dusk
   else
@@ -58,10 +58,11 @@ local function random_sheme(dawns, days, dusks, nights)
   return dispatch_theme_by_time(dawn, day, dusk, night)
 end
 
--- return random_sheme(
---   { "tokyonight-day", "catppuccin-latte", "dawnfox", "rose-pine-dawn" },
---   { "tokyonight-day", "catppuccin-latte", "dayfox", "rose-pine-dawn" },
---   { "tokyonight-moon", "catppuccin-macchiato", "duskfox", "rose-pine-moon" },
---   { "tokyonight-night", "catppuccin-mocha", "nightfox", "rose-pine-main" }
--- )
-return choose_sheme("tokyonight")
+return random_sheme(
+  { "tokyonight-day", "catppuccin-latte", "dawnfox", "rose-pine-dawn" ,  "kanagawa-lotus"},
+  { "tokyonight-day", "catppuccin-latte", "dayfox", "rose-pine-dawn",  "kanagawa-lotus" },
+  { "tokyonight-moon","tokyonight-storm", "catppuccin-macchiato", "catppuccin-frappe", "duskfox","nordfox", "rose-pine-moon", "everforest",  "kanagawa-wave" },
+  { "tokyonight-night", "catppuccin-mocha", "nightfox","terafox", "carbonfox", "rose-pine-main", "everforest", "kanagawa-dragon", "solarized-osaka" }
+)
+-- return choose_sheme("catppuccin")
+-- return "rose-pine-dawn"

@@ -12,7 +12,7 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
   -- { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.json" },

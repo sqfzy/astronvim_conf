@@ -40,6 +40,10 @@ return {
   { "rose-pine/neovim", name = "rose-pine" },
   { "EdenEast/nightfox.nvim" },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "savq/melange-nvim" },
+  { "sainnhe/everforest" },
+  { "rebelot/kanagawa.nvim" },
+  { "craftzdog/solarized-osaka.nvim" },
   {
     "navarasu/onedark.nvim",
     opts = {
