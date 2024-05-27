@@ -12,7 +12,7 @@ return {
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- Normal = {ctermbg = 0},
-        -- LspReferenceText = {  guisp = "#b8b8b8" },
+        -- LspReferenceText = { guisp = "#b8b8b8" },
         TelescopeNormal = { ctermbg = 0 },
         TelescopeBorder = { ctermbg = 0 },
         TelescopePromptNormal = { ctermbg = 0 },

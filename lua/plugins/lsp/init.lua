@@ -1,3 +1,9 @@
+-- Function to set key mappings for a floating window
+local function set_float_keymaps(bufnr)
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<Nop>", opts) -- Disable K key in float window
+end
+
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -156,6 +162,7 @@ return {
     },
     -- customize how language servers are attached
     handlers = {
+
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
       -- function(server, opts) require("lspconfig")[server].setup(opts) end
 
@@ -192,7 +199,7 @@ return {
     mappings = {
       n = {
         gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
-        K = false,
+        -- K = "<Nop>",
         ["<A-k>"] = { function() vim.lsp.buf.hover() end, desc = "Hover" },
         -- ["<A-d>"] = {function() vim.lsp.buf.definition() end, desc = "Definition"},
         -- ["<A-D>"] = {function() vim.lsp.buf.declaration() end, desc = "Declaration"},

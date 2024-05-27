@@ -23,6 +23,14 @@ return {
             ["vim.lsp.util.stylize_markdown"] = true,
             ["cmp.entry.get_documentation"] = true,
           },
+          -- 会覆盖'K'按键的映射
+          hover = {
+            enabled = false,
+            silent = false, -- set to true to not show a message if hover is not available
+            view = nil, -- when nil, use defaults from documentation
+            ---@type NoiceViewOptions
+            opts = {}, -- merged with defaults from documentation
+          },
           -- 与 lsp_signature.nvim 冲突
           signature = {
             enabled = true,
@@ -48,8 +56,7 @@ return {
           {
             filter = {
               event = "msg_show",
-              kind = "",
-              find = "B written",
+              find = " change;",
             },
             opts = { skip = true },
           },
@@ -57,7 +64,28 @@ return {
             filter = {
               event = "msg_show",
               kind = "message",
-              find = "",
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              find = "more lines",
+            },
+            opts = { skip = true },
+          },
+
+          {
+            filter = {
+              event = "msg_show",
+              find = "fewer lines",
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              find = "written",
             },
             opts = { skip = true },
           },
