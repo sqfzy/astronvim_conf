@@ -48,8 +48,7 @@ return {
               },
               inlayHints = {
                 lifetimeElisionHints = {
-                  enable = true,
-                  useParameterNames = true,
+                  enable = "always",
                 },
               },
             },
