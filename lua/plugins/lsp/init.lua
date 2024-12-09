@@ -36,11 +36,20 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "fish_lsp",
+      -- "ark",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      tinymist = {
+        single_file_support = true,
+      },
+      fish_lsp = {
+        command = "fish-lsp",
+        filetypes = { "fish" },
+        args = { "start" },
+      },
       rust_analyzer = {
         ["rust-analyzer"] = {
           ["imports.granularity.enforce"] = true,
@@ -250,11 +259,11 @@ return {
         -- ["<A-H>"] = {function() vim.lsp.buf.signature_help()
 
         ["[D"] = {
-          function() vim.diagnostic.get_prev { severity = vim.diagnostic.severity.ERROR } end,
+          function() vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR } end,
           desc = "Previous diagnostic",
         },
         ["]D"] = {
-          function() vim.diagnostic.get_next { severity = vim.diagnostic.severity.ERROR } end,
+          function() vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR } end,
           desc = "Next diagnostic",
         },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean

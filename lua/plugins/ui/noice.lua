@@ -90,6 +90,28 @@ return {
             },
             opts = { skip = true },
           },
+          {
+            filter = {
+              event = "msg_show",
+              find = "lines yanked",
+            },
+            opts = { skip = true },
+          },
+
+          {
+            filter = {
+              event = "notify",
+              find = "-32802: server cancelled the request",
+            },
+            opts = { skip = true },
+          },
+          {
+            filter = {
+              event = "msg_show",
+              find = "/usr/share/nvim/runtime/lua/vim/lsp/semantic_tokens.lua",
+            },
+            opts = { skip = true },
+          },
         },
       })
     end,

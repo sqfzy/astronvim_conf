@@ -9,7 +9,6 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- configure font
-        guifont = "0xProto,Hack Nerd Font:h12",
         -- line spacing
         -- linespace = 0,
       },

@@ -17,6 +17,8 @@ return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.proto" },
+  { import = "astrocommunity.pack.typst" },
+  { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.utility.noice-nvim" },
 
   { import = "astrocommunity.colorscheme.catppuccin" },
@@ -34,6 +36,9 @@ return {
   { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
   -- { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  {import = "astrocommunity.editing-support.copilotchat-nvim"},
   { import = "astrocommunity.test.neotest" },
+
+  -- {import = "astrocommunity.completion.copilot-lua-cmp"}
   -- import/override with your plugins folder
 }

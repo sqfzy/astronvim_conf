@@ -49,8 +49,11 @@ return {
         cursorline = false,
         clipboard = "unnamedplus",
         -- guifont = "0xProto_Nerd_Font,Hack_Nerd_Font:h14", -- font name in linux
-        guifont = "0xProto,Hack_Nerd_Font:h12", -- font name in windows
+        -- guifont = "0xProto,Hack_Nerd_Font:h12", -- font name in windows
+        guifont = "0xProto,LXGW WenKai,Hack_Nerd_Font:h12",
+        -- guifont = "LXGWWenKaiMono NF,0xProto:h12",
         foldopen = "mark,percent,quickfix,search,tag,undo", -- 去掉`hor`
+        shortmess = "ltToOCFA",
       },
       g = {
         -- python3_host_prog = "~/venv/bin/activate",
@@ -116,10 +119,11 @@ return {
         ["<BS>"] = { '%"_x``"_x' }, -- 删除一对括号
 
         -- 删除buf
-        ["<Leader>c"] = false,
+        -- ["<Leader>c"] = false,
         ["<Leader>C"] = false,
         ["<A-c>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
         ["<A-C>"] = { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers" },
+        ["<Leader>b"] = { desc = "Buffer" },
         ["<Leader>bh"] = {
           function() require("astrocore.buffer").close_left() end,
           desc = "Close all buffers to the left",
@@ -135,13 +139,13 @@ return {
         -- 添加标点、括号
         ["<A-;>"] = { "$a;<ESC>" }, --句尾添';'
         ["<A-,>"] = { "$a,<ESC>" },
-        ["<A-.>"] = { "bi<<ESC>ea><ESC>" },
-        ["<A-s>"] = { 'bi"<ESC>ea"<ESC>' },
-        ["<A-i>"] = { "bi{<ESC>ea}<ESC>" },
-        ["<A-'>"] = { "bi'<ESC>ea'<ESC>" },
-        ["<A-b>"] = { "bi(<ESC>ea)<ESC>" },
-        ["<A-9>"] = { "bi(<ESC>ea)<ESC>" },
-        ["<A-[>"] = { "bi[<ESC>ea]<ESC>" },
+        ["<A-.>"] = { "lbi<<ESC>ea><ESC>" },
+        ["<A-s>"] = { 'lbi"<ESC>ea"<ESC>' },
+        ["<A-i>"] = { "lbi{<ESC>ea}<ESC>" },
+        ["<A-'>"] = { "lbi'<ESC>ea'<ESC>" },
+        ["<A-b>"] = { "lbi(<ESC>ea)<ESC>" },
+        ["<A-9>"] = { "lbi(<ESC>ea)<ESC>" },
+        ["<A-[>"] = { "lbi[<ESC>ea]<ESC>" },
         ["<A-7>"] = "mtbi&<Esc>`t", -- 单词首部添加'&'
         ["<A-8>"] = "mtbi*<Esc>`t", -- 单词首部添加'*'
 
@@ -207,7 +211,7 @@ return {
         ["<A-4>"] = {
           function()
             local dir = tostring(vim.fn.expand "%:p:h")
-            require("toggleterm").exec("cd " .. dir .. " & zsh", 3, nil, nil, "float", "Term3", false, true)
+            require("toggleterm").exec("cd " .. dir, 3, nil, nil, "float", "Term3", false, true)
           end,
           desc = "ToggleTerm current dir",
         },
@@ -218,7 +222,7 @@ return {
         },
         ["<A-3>"] = {
           "<cmd>3ToggleTerm direction=float<CR>",
-          -- function() require("toggleterm").exec("zsh", 3, nil, nil, "float", "Term3", false, true) end,
+          -- function() require("toggleterm").exec("exec fish", 3, nil, nil, "float", "Term3", false, true) end,
           desc = "ToggleTerm float",
         },
         ["<A-2>"] = {
@@ -233,21 +237,34 @@ return {
         },
 
         -- 保存
-        ["<Leader>w"] = {
+        ["<Leader>W"] = {
           function()
             vim.lsp.buf.format(require("astrolsp").format_opts)
             vim.cmd "w!"
           end,
-          desc = "Save",
+          desc = "Save with format",
         },
-        -- ["<Leader>W"] = { "<cmd>w!<cr>", desc = "Save" },
+        ["<Leader>w"] = { "<cmd>w!<cr>", desc = "Save" },
 
-        ["<Leader>n"] = false,
+        ["<Leader>n"] = {desc = "Neo-tree"},
+        ["<Leader>nh"] = { "<cmd>Neotree ~/<CR>", desc = "Home" },
+        ["<Leader>nw"] = { "<cmd>Neotree ~/work_space/<CR>", desc = "Work dir" },
+        ["<Leader>nc"] = { "<cmd>Neotree ~/.config/nvim/<CR>", desc = "Config dir" },
+        ["<Leader>nn"] = { "<cmd>Neotree dir=%:p:h<CR>", desc = "Current dir" },
 
         ["<A-w>"] = {
           "<C-w>w",
           desc = "Switch windows",
         },
+
+        ["<Leader>c"] = { desc = "Colorscheme"},
+        ["<Leader>ct"] = {"<cmd>colorscheme tokyonight<CR>", desc = "Tokyonight"},
+        ["<Leader>cc"] = {"<cmd>colorscheme catppuccin<CR>", desc = "Catppuccin"},
+        ["<Leader>cf"] = {"<cmd>colorscheme duskfox<CR>", desc = "Catppuccin"},
+        ["<Leader>cr"] = {"<cmd>colorscheme rose-pine<CR>", desc = "Rose-pine"},
+        ["<Leader>ce"] = {"<cmd>colorscheme everforest<CR>", desc = "Everforest"},
+        ["<Leader>ck"] = {"<cmd>colorscheme kanagawa<CR>", desc = "Kanagawa"},
+        ["<Leader>co"] = {"<cmd>colorscheme osaka<CR>", desc = "Osaka"},
       },
       i = {
         ["<S-Right>"] = { "<Left>" },
@@ -259,12 +276,12 @@ return {
         ["<A-S-k>"] = { "<Esc>:m .-2<CR>==gi" },
 
         ["<A-;>"] = { "<ESC>$a;" }, --句尾添';'
-        ["<A-s>"] = { '<ESC>bi"<ESC>ea"' },
-        ["<A-i>"] = { "<ESC>bi{<ESC>ea}" },
-        ["<A-9>"] = { "<ESC>bi(<ESC>ea)" },
-        ["<A-'>"] = { "<ESC>bi'<ESC>ea'" },
-        ["<A-[>"] = { "<ESC>bi[<ESC>ea]" },
-        ["<A-,>"] = { "<ESC>bi<<ESC>ea>" },
+        ["<A-s>"] = { '<ESC>lbi"<ESC>ea"' },
+        ["<A-i>"] = { "<ESC>lbi{<ESC>ea}" },
+        ["<A-9>"] = { "<ESC>lbi(<ESC>ea)" },
+        ["<A-'>"] = { "<ESC>lbi'<ESC>ea'" },
+        ["<A-[>"] = { "<ESC>lbi[<ESC>ea]" },
+        ["<A-,>"] = { "<ESC>lbi<<ESC>ea>" },
         ["<A-->"] = { "->" },
         ["<A-=>"] = { "=>" },
         -- ["<Tab>"] = "<Right>",
@@ -325,6 +342,8 @@ return {
         ["<A-b>"] = { '"-xi()<Esc>"-P' },
         ["<A-[>"] = { '"-xi[]<Esc>"-P' },
         ["<A-.>"] = { '"-xi<><Esc>"-P' },
+        ["<A-8>"] = { '"-xi**<Esc>"-P' },
+        ["<A-4>"] = { '"-xi$$<Esc>"-P' },
 
         -- ["s"] = false,
         -- ["S"] = false,
