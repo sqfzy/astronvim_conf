@@ -110,12 +110,22 @@ return {
         ["c'"] = { "\"_ci'" }, -- ''
         ["c["] = { '"_ci[' }, -- []
         ["c,"] = { '"_ci<' }, -- <>
-        ["db"] = { '"tyi(da(h"tp' }, -- 删除()
-        ["d9"] = { '"tyi(da(h"tp' }, -- 删除()
-        ["ds"] = { '"tyi"da"h"tp' }, -- 删除""
-        ["d'"] = { "\"tyi'da'h\"tp" }, -- 删除''
-        ["d["] = { '"tyi[da[h"tp' }, -- 删除[]
-        ["di"] = { '"tyi{da{h"tp' }, -- 删除{}
+        ["c4"] = { '"_F$lvf$hdi' }, -- $$
+
+        ["db"] = { 'vi("_d' }, --()
+        ["di"] = { 'vi{"_d' }, --{}
+        ["ds"] = { 'vi""_d' }, --字符串
+        ["d'"] = { "vi'\"_d" }, -- ''
+        ["d["] = { 'vi["_d' }, -- []
+        ["d,"] = { 'vi<"_d' }, -- <>
+        ["d4"] = { '"_F$lvf$h"_d' }, -- $$
+
+        ["Db"] = { '"tyi(da(h"tp' }, -- 删除()
+        ["D9"] = { '"tyi(da(h"tp' }, -- 删除()
+        ["Ds"] = { '"tyi"da"h"tp' }, -- 删除""
+        ["D'"] = { "\"tyi'da'h\"tp" }, -- 删除''
+        ["D["] = { '"tyi[da[h"tp' }, -- 删除[]
+        ["Di"] = { '"tyi{da{h"tp' }, -- 删除{}
         ["<BS>"] = { '%"_x``"_x' }, -- 删除一对括号
 
         -- 删除buf
@@ -150,10 +160,13 @@ return {
         ["<A-8>"] = "mtbi*<Esc>`t", -- 单词首部添加'*'
 
         -- 复制
+        ["yL"] = { "y$" },
+
         ["yw"] = { "byw" }, -- 复制单词
         ["yib"] = { "yi(" },
         ["yis"] = { 'yi"' },
         ["yii"] = { "yi{" },
+        ["yi4"] = { "F$lvf$hy" },
         -- ["1y"] = { '"1y' },
         -- ["1p"] = { '"1p' },
         -- ["2y"] = { '"2y' },
@@ -246,7 +259,7 @@ return {
         },
         ["<Leader>w"] = { "<cmd>w!<cr>", desc = "Save" },
 
-        ["<Leader>n"] = {desc = "Neo-tree"},
+        ["<Leader>n"] = { "", desc = "Neo-tree" },
         ["<Leader>nh"] = { "<cmd>Neotree ~/<CR>", desc = "Home" },
         ["<Leader>nw"] = { "<cmd>Neotree ~/work_space/<CR>", desc = "Work dir" },
         ["<Leader>nc"] = { "<cmd>Neotree ~/.config/nvim/<CR>", desc = "Config dir" },
@@ -257,14 +270,16 @@ return {
           desc = "Switch windows",
         },
 
-        ["<Leader>c"] = { desc = "Colorscheme"},
-        ["<Leader>ct"] = {"<cmd>colorscheme tokyonight<CR>", desc = "Tokyonight"},
-        ["<Leader>cc"] = {"<cmd>colorscheme catppuccin<CR>", desc = "Catppuccin"},
-        ["<Leader>cf"] = {"<cmd>colorscheme duskfox<CR>", desc = "Catppuccin"},
-        ["<Leader>cr"] = {"<cmd>colorscheme rose-pine<CR>", desc = "Rose-pine"},
-        ["<Leader>ce"] = {"<cmd>colorscheme everforest<CR>", desc = "Everforest"},
-        ["<Leader>ck"] = {"<cmd>colorscheme kanagawa<CR>", desc = "Kanagawa"},
-        ["<Leader>co"] = {"<cmd>colorscheme osaka<CR>", desc = "Osaka"},
+        ["<Leader>c"] = { "", desc = "Colorscheme" },
+        ["<Leader>ct"] = { "<cmd>colorscheme tokyonight<CR>", desc = "Tokyonight" },
+        ["<Leader>cc"] = { "<cmd>colorscheme catppuccin<CR>", desc = "Catppuccin" },
+        ["<Leader>cf"] = { "<cmd>colorscheme duskfox<CR>", desc = "Catppuccin" },
+        ["<Leader>cr"] = { "<cmd>colorscheme rose-pine<CR>", desc = "Rose-pine" },
+        ["<Leader>ce"] = { "<cmd>colorscheme everforest<CR>", desc = "Everforest" },
+        ["<Leader>ck"] = { "<cmd>colorscheme kanagawa<CR>", desc = "Kanagawa" },
+        ["<Leader>co"] = { "<cmd>colorscheme osaka<CR>", desc = "Osaka" },
+
+        ["<Leader>a"] = { "", desc = "Avante" },
       },
       i = {
         ["<S-Right>"] = { "<Left>" },
@@ -284,7 +299,7 @@ return {
         ["<A-,>"] = { "<ESC>lbi<<ESC>ea>" },
         ["<A-->"] = { "->" },
         ["<A-=>"] = { "=>" },
-        -- ["<Tab>"] = "<Right>",
+        ["<Tab>"] = "<cmd>tabNext<CR>",
         -- ["<S-Tab>"] = "<Left>",
 
         -- ["<S-l><S-l>"] = "<Esc><S-a>",

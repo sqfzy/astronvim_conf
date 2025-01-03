@@ -22,6 +22,11 @@ require("nvim-web-devicons").set_icon {
     cterm_color = "31", -- 用于终端的颜色编号
     name = "Typst", -- 图标名称，用于调试或扩展支持
   },
+  mmd = {
+    icon = "Y",
+    color = "#fd366e",
+    name = "Mmd",
+  }
 }
 
 if vim.fn.isdirectory(vim.fn.expand "~/work_space/") == 0 then vim.fn.mkdir(vim.fn.expand "~/work_space/") end

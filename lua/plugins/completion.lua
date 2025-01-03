@@ -122,7 +122,7 @@ return { -- override nvim-cmp plugin
           :replace_endpair(function() return "<bs><bs>'\\t'" end)
           :set_end_pair_length(0),
         Rule("$", "", { "typst", "tex", "latex" }):with_cr(cond.none),
-        Rule("```%w*", "", { "typst", "tex", "latex" }):use_regex(true):with_cr(cond.none),
+        -- Rule("```%w*", "", { "typst", "tex", "latex" }):use_regex(true):with_cr(cond.none),
         -- Rule("`", "", { "typst", "tex", "latex" }),
         Rule("$$", "", { "typst", "tex", "latex" }):with_pair(cond.none):set_end_pair_length(1),
         Rule('""', "", { "typst", "tex", "latex" }):with_pair(cond.none):set_end_pair_length(1),
@@ -176,8 +176,8 @@ return { -- override nvim-cmp plugin
         -- },
       },
       filetypes = {
-        yaml = false,
-        markdown = false,
+        yaml = true,
+        markdown = true,
         help = false,
         gitcommit = false,
         gitrebase = false,
