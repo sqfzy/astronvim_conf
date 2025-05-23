@@ -1,6 +1,30 @@
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 
+local denols_config = {
+  deno = {
+    enable = true, -- 启用Deno语言服务器
+    lint = true, -- 启用代码检查
+    unstable = false, -- 是否启用不稳定API支持
+    -- importMap = "./import_map.json", -- 指定导入映射文件的路径
+    config = "./deno.json", -- 引用 deno.json 配置文件
+    suggest = {
+      autoImports = true, -- 启用自动导入建议
+      imports = {
+        hosts = {
+          ["https://deno.land"] = true, -- 启用从deno.land导入的建议
+          ["https://cdn.deno.land"] = true,
+        },
+      },
+    },
+    codeLens = {
+      implementations = true, -- 启用实现的代码透镜
+      references = true, -- 启用引用的代码透镜
+      test = true, -- 启用测试的代码透镜
+    },
+  },
+}
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -36,7 +60,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      "fish_lsp",
+      -- "fish_lsp",
       -- "ark",
     },
     -- customize language server configuration options passed to `lspconfig`
@@ -50,128 +74,8 @@ return {
         filetypes = { "fish" },
         args = { "start" },
       },
-      rust_analyzer = {
-        ["rust-analyzer"] = {
-          ["imports.granularity.enforce"] = true,
-          check = {
-            -- ignore = (_G.isMoon and vim.cmd "colorscheme" == "tokyonight") and {}
-            --   or { "dead_code", "unused_imports", "unused_variables" },
-            -- { "dead_code", "unused_imports" },
-          },
-          checkOnSave = {
-            allFeatures = true,
-            command = "clippy",
-            extraArgs = { "--no-deps" },
-          },
-          completion = {
-            snippets = {
-              custom = {
-                -- "Arc::new": {
-                --     "postfix": "arc",
-                --     "body": "Arc::new(${receiver})",
-                --     "requires": "std::sync::Arc",
-                --     "description": "Put the expression into an `Arc`",
-                --     "scope": "expr"
-                -- },
-                ["Result"] = {
-                  postfix = "resu",
-                  body = "Result<${receiver}>",
-                  description = "Wrap the expression in a `Result`",
-                  scope = "expr",
-                  -- for Snippet-Scopes: expr, item (default: item)
-                  -- for Postfix-Snippet-Scopes: expr, type (default: expr)
-                },
-                ["Ok"] = {
-                  postfix = "ok",
-                  body = "Ok(${receiver})",
-                  description = "Wrap the expression in a `Result::Ok`",
-                  scope = "expr",
-                },
-                ["Err"] = {
-                  postfix = "err",
-                  body = "Err(${receiver})",
-                  description = "Wrap the expression in a `Result::Err`",
-                  scope = "expr",
-                },
-                ["Option"] = {
-                  postfix = "opt",
-                  body = "Option<${receiver}>",
-                  description = "Wrap the expression in a `Option`",
-                  scope = "expr",
-                },
-                ["Some"] = {
-                  postfix = "some",
-                  body = "Some(${receiver})",
-                  description = "Wrap the expression in a `Option:Some`",
-                  scope = "expr",
-                },
-                ["Deref"] = {
-                  postfix = "def",
-                  body = "*${receiver}",
-                  scope = "expr",
-                },
-                ["DerefMut"] = {
-                  postfix = "defm",
-                  body = "*mut ${receiver}",
-                  scope = "expr",
-                },
-              },
-            },
-          },
-          inlayHints = {
-            closureCaptureHints = {
-              enable = true,
-            },
-            discriminantHints = {
-              enable = true,
-            },
-            -- expressionAdjustmentHints = {
-            --   enable = true,
-            -- },
-            lifetimeElisionHints = {
-              enable = true,
-            },
-          },
-          lens = {
-            references = {
-              adt = {
-                -- enable = true,
-              },
-              enumVariant = {
-                -- enable = true,
-              },
-              method = {
-                -- enable = true,
-              },
-              trait = {
-                -- enable = true,
-              },
-            },
-          },
-          hover = {
-            memoryLayout = {
-              niches = true,
-            },
-          },
-          cargo = {
-            extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev" },
-            extraArgs = { "--profile", "rust-analyzer" },
-          },
-        },
-
-        root_dir = function(fname)
-          local root_patterns = require("lspconfig.util").root_pattern("Cargo.toml", "rust-project.json")
-          local root_dir = root_patterns(fname)
-
-          if root_dir and root_dir:find "demo_code" then
-            return nil
-          else
-            return root_dir
-          end
-        end,
-
-        single_file_support = true,
-      },
+      -- rust_analyzer = rust_analyzer_config,
+      -- denols = denols_config,
 
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
@@ -199,26 +103,35 @@ return {
         cond = "textDocument/documentHighlight",
         -- cond = function(client, bufnr) return client.name == "lua_ls" end,
         -- list of auto commands to set
-        {
-          -- events to trigger
-          event = { "CursorHold", "CursorHoldI" },
-          -- the rest of the autocmd options (:h nvim_create_autocmd)
-          desc = "Document Highlighting",
-          callback = function() vim.lsp.buf.document_highlight() end,
-        },
-        {
-          event = { "CursorMoved", "CursorMovedI", "BufLeave" },
-          desc = "Document Highlighting Clear",
-          callback = function() vim.lsp.buf.clear_references() end,
-        },
+        -- {
+        --   -- events to trigger
+        --   event = { "CursorHold", "CursorHoldI" },
+        --   -- the rest of the autocmd options (:h nvim_create_autocmd)
+        --   desc = "Document Highlighting",
+        --   callback = function() vim.lsp.buf.document_highlight() end,
+        -- },
+        -- {
+        --   event = { "CursorMoved", "CursorMovedI", "BufLeave" },
+        --   desc = "Document Highlighting Clear",
+        --   callback = function() vim.lsp.buf.clear_references() end,
+        -- },
+        -- {
+        --   event = {"ColorScheme"},
+        --   callback = function()
+        --     vim.api.nvim_set_hl(0, 'LspReferenceTarget', {})
+        --   end,
+        -- }
       },
     },
     -- mappings to be set up on attaching of a language server
     mappings = {
       n = {
         gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+
         -- K = "<Nop>",
-        ["<A-k>"] = { function() vim.lsp.buf.hover() end, desc = "Hover" },
+        ["<A-k>"] = { function() vim.lsp.buf.hover({
+          border = "rounded"
+        }) end, desc = "Hover" },
         -- ["<A-d>"] = {function() vim.lsp.buf.definition() end, desc = "Definition"},
         -- ["<A-D>"] = {function() vim.lsp.buf.declaration() end, desc = "Declaration"},
         -- ["<A-i>"] = {function() vim.lsp.buf.implementation() end, desc = "Implementation"},

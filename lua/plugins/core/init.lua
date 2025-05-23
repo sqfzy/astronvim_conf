@@ -110,7 +110,7 @@ return {
         ["c'"] = { "\"_ci'" }, -- ''
         ["c["] = { '"_ci[' }, -- []
         ["c,"] = { '"_ci<' }, -- <>
-        ["c4"] = { '"_F$lvf$hdi' }, -- $$
+        ["c4"] = { '"_F$lvf$h"_di' }, -- $$
 
         ["db"] = { 'vi("_d' }, --()
         ["di"] = { 'vi{"_d' }, --{}
@@ -280,6 +280,11 @@ return {
         ["<Leader>co"] = { "<cmd>colorscheme osaka<CR>", desc = "Osaka" },
 
         ["<Leader>a"] = { "", desc = "Avante" },
+
+        ["<Leader>lc"] = {
+          function() vim.print(vim.inspect(require("lspconfig")["<server_name>"].document_config)) end,
+          desc = "Print LSP config",
+        },
       },
       i = {
         ["<S-Right>"] = { "<Left>" },
@@ -299,7 +304,7 @@ return {
         ["<A-,>"] = { "<ESC>lbi<<ESC>ea>" },
         ["<A-->"] = { "->" },
         ["<A-=>"] = { "=>" },
-        ["<Tab>"] = "<cmd>tabNext<CR>",
+        -- ["<Tab>"] = "<cmd>tabNext<CR>",
         -- ["<S-Tab>"] = "<Left>",
 
         -- ["<S-l><S-l>"] = "<Esc><S-a>",
@@ -307,6 +312,9 @@ return {
 
         ["<C-h>"] = { "<Esc>gh" },
         ["<C-l>"] = { "<Esc>lgh" },
+
+        ["<A-h>"] = { "<cmd>lua require('luasnip').jump(-1)<Cr>" },
+        ["<A-l>"] = { "<cmd>lua require('luasnip').jump(1)<Cr>" },
       },
       v = {
 

@@ -36,6 +36,8 @@ local function get_floating_win_id()
   return nil
 end
 
+vim.keymap.set("n", "<A-k>", function() vim.cmd.RustLsp { "hover", "actions" } end, { silent = true, buffer = bufnr })
+
 vim.keymap.set("n", "<Leader>W", function()
   vim.lsp.buf.format(require("astrolsp").format_opts)
   vim.cmd "w!"

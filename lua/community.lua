@@ -13,14 +13,16 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.typescript-deno" },
   { import = "astrocommunity.pack.toml" },
+  { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.json" },
   -- { import = "astrocommunity.pack.proto" },
   { import = "astrocommunity.pack.typst" },
-  -- { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.svelte" },
   -- { import = "astrocommunity.pack.kotlin" },
-  { import = "astrocommunity.utility.noice-nvim" },
+  -- { import = "astrocommunity.utility.noice-nvim" },
 
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.everforest" },
@@ -39,6 +41,8 @@ return {
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
   { import = "astrocommunity.test.neotest" },
+  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 
   -- {import = "astrocommunity.completion.copilot-lua-cmp"}
   -- import/override with your plugins folder

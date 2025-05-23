@@ -56,7 +56,9 @@ return { -- override nvim-cmp plugin
       npairs.add_rules {
 
         -- 注释
-        Rule("/* ", " */", { "c", "cpp", "css", "javascript", "php", "rust", "typst" }):with_pair(cond.not_inside_quote()),
+        Rule("/* ", " */", { "c", "cpp", "css", "javascript", "php", "rust", "typst" }):with_pair(
+          cond.not_inside_quote()
+        ),
         Rule("//", " ", { "c", "cpp", "javascript", "php", "rust", "typst" })
           :with_pair(cond.not_inside_quote())
           :replace_endpair(function(opts)
@@ -138,21 +140,21 @@ return { -- override nvim-cmp plugin
     cmd = "Copilot",
     event = "User AstroFile",
     opts = {
-      panel = {
-        enabled = false,
-        auto_refresh = false,
-        keymap = {
-          jump_prev = "[[",
-          jump_next = "]]",
-          accept = "<CR>",
-          refresh = "gr",
-          open = "<M-CR>",
-        },
-        layout = {
-          position = "bottom", -- | top | left | right
-          ratio = 0.4,
-        },
-      },
+      --   panel = {
+      --     enabled = false,
+      --     auto_refresh = false,
+      --     keymap = {
+      --       jump_prev = "[[",
+      --       jump_next = "]]",
+      --       accept = "<CR>",
+      --       refresh = "gr",
+      --       open = "<M-CR>",
+      --     },
+      --     layout = {
+      --       position = "bottom", -- | top | left | right
+      --       ratio = 0.4,
+      --     },
+      --   },
 
       suggestion = {
         enabled = true,
@@ -186,8 +188,9 @@ return { -- override nvim-cmp plugin
         cvs = false,
         ["."] = true,
       },
-      copilot_node_command = "node",
-      server_opts_overrides = {},
+      copilot_model = "gpt-4o-copilot",
+      -- copilot_node_command = "node",
+      -- server_opts_overrides = {},
     },
   },
 }

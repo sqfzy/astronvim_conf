@@ -13,7 +13,7 @@ return {
         -- linespace = 0,
       },
       g = { -- configure vim.g variables
-        neovide_transparency = 0.85,
+        neovide_opacity = 0.85,
         -- neovide_theme = "auto",
         neovide_hide_mouse_when_typing = true,
         neovide_fullscreen = true,
