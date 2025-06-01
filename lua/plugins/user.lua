@@ -83,12 +83,12 @@ return {
             --         |_|       |___/
             --     ]],
 
-            -- "███████╗ ██████╗ ███████╗███████╗██╗   ██╗",
-            -- "██╔════╝██╔═══██╗██╔════╝╚══███╔╝╚██╗ ██╔╝",
-            -- "███████╗██║   ██║█████╗    ███╔╝  ╚████╔╝ ",
-            -- "╚════██║██║▄▄ ██║██╔══╝   ███╔╝    ╚██╔╝  ",
-            -- "███████║╚██████╔╝██║     ███████╗   ██║   ",
-            -- "╚══════╝ ╚══▀▀═╝ ╚═╝     ╚══════╝   ╚═╝   ",
+            "███████╗ ██████╗ ███████╗███████╗██╗   ██╗",
+            "██╔════╝██╔═══██╗██╔════╝╚══███╔╝╚██╗ ██╔╝",
+            "███████╗██║   ██║█████╗    ███╔╝  ╚████╔╝ ",
+            "╚════██║██║▄▄ ██║██╔══╝   ███╔╝    ╚██╔╝  ",
+            "███████║╚██████╔╝██║     ███████╗   ██║   ",
+            "╚══════╝ ╚══▀▀═╝ ╚═╝     ╚══════╝   ╚═╝   ",
             -- " ▄▀▀▀▀▄  ▄▀▀▀▀▄    ▄▀▀▀█▄    ▄▀▀▀▀▄   ▄▀▀▄ ▀▀▄ ",
             -- "█ █   ▐ █      █  █  ▄▀  ▀▄ █     ▄▀ █   ▀▄ ▄▀ ",
             -- "   ▀▄   █      █  ▐ █▄▄▄▄   ▐ ▄▄▀▀   ▐     █   ",
@@ -107,19 +107,26 @@ return {
             -- " ▄▄▄▄▄▄▄▄▄█░▌ ▀▀▀▀▀▀█░█▀▀ ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ",
             -- "▐░░░░░░░░░░░▌        ▐░▌  ▐░▌          ▐░░░░░░░░░░░▌     ▐░▌     ",
             -- " ▀▀▀▀▀▀▀▀▀▀▀          ▀    ▀            ▀▀▀▀▀▀▀▀▀▀▀       ▀      ",
-            "  ██████   █████    █████▒▒███████▒▓██   ██▓",
-            "▒██    ▒ ▒██▓  ██▒▓██   ▒ ▒ ▒ ▒ ▄▀░ ▒██  ██▒",
-            "░ ▓██▄   ▒██▒  ██░▒████ ░ ░ ▒ ▄▀▒░   ▒██ ██░",
-            "  ▒   ██▒░██  █▀ ░░▓█▒  ░   ▄▀▒   ░  ░ ▐██▓░",
-            "▒██████▒▒░▒███▒█▄ ░▒█░    ▒███████▒  ░ ██▒▓░",
-            "▒ ▒▓▒ ▒ ░░░ ▒▒░ ▒  ▒ ░    ░▒▒ ▓░▒░▒   ██▒▒▒ ",
-            "░ ░▒  ░ ░ ░ ▒░  ░  ░      ░░▒ ▒ ░ ▒ ▓██ ░▒░ ",
-            "░  ░  ░     ░   ░  ░ ░    ░ ░ ░ ░ ░ ▒ ▒ ░░  ",
-            "      ░      ░              ░ ░     ░ ░     ",
-            "                          ░         ░ ░     ",
+            -- "  ██████   █████    █████▒▒███████▒▓██   ██▓",
+            -- "▒██    ▒ ▒██▓  ██▒▓██   ▒ ▒ ▒ ▒ ▄▀░ ▒██  ██▒",
+            -- "░ ▓██▄   ▒██▒  ██░▒████ ░ ░ ▒ ▄▀▒░   ▒██ ██░",
+            -- "  ▒   ██▒░██  █▀ ░░▓█▒  ░   ▄▀▒   ░  ░ ▐██▓░",
+            -- "▒██████▒▒░▒███▒█▄ ░▒█░    ▒███████▒  ░ ██▒▓░",
+            -- "▒ ▒▓▒ ▒ ░░░ ▒▒░ ▒  ▒ ░    ░▒▒ ▓░▒░▒   ██▒▒▒ ",
+            -- "░ ░▒  ░ ░ ░ ▒░  ░  ░      ░░▒ ▒ ░ ▒ ▓██ ░▒░ ",
+            -- "░  ░  ░     ░   ░  ░ ░    ░ ░ ░ ░ ░ ▒ ▒ ░░  ",
+            -- "      ░      ░              ░ ░     ░ ░     ",
+            -- "                          ░         ░ ░     ",
           }, "\n"),
         },
       }
+
+      vim.api.nvim_create_user_command(
+        "Message",
+        function() Snacks.notifier.show_history() end,
+        { desc = "Notification History" }
+      )
+      vim.api.nvim_create_user_command("Marks", function() Snacks.picker.marks() end, { desc = "Marks" })
     end,
     keys = {
       { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
@@ -145,17 +152,19 @@ return {
       { "<leader>sc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
       { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
     },
-    config = function(_, _)
-      vim.api.nvim_create_user_command(
-        "Message",
-        function() Snacks.notifier.show_history() end,
-        { desc = "Notification History" }
-      )
-
-      vim.api.nvim_create_user_command("Marks", function() Snacks.picker.marks() end, { desc = "Marks" })
-    end,
   },
 
-  -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
+  { "max397574/better-escape.nvim" },
+
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
 }
