@@ -3,19 +3,26 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+local Snacks = require "snacks"
+
 local rust_settings = {
   ["rust-analyzer"] = {
     -- ["imports.granularity.enforce"] = true,
-    -- check = {
-    --   -- ignore = (_G.isMoon and vim.cmd "colorscheme" == "tokyonight") and {}
-    --   --   or { "dead_code", "unused_imports", "unused_variables" },
-    --   -- { "dead_code", "unused_imports" },
-    -- },
-    -- checkOnSave = {
-    --   allFeatures = true,
-    --   command = "clippy",
-    --   extraArgs = { "--no-deps" },
-    -- },
+
+    check = {
+      command = "clippy",
+      extraArgs = {
+        "--no-deps",
+      },
+    },
+    checkOnSave = false,
+    files = {
+      excludeDirs = {
+        ".direnv",
+        ".git",
+        "target",
+      },
+    },
     completion = {
       snippets = {
         custom = {
@@ -92,6 +99,7 @@ return {
         codelens = true, -- enable/disable codelens refresh on start
         inlay_hints = true, -- enable/disable inlay hints on start
         semantic_tokens = true, -- enable/disable semantic token highlighting
+        signature_help = true,
       },
       -- customize lsp formatting options
       formatting = {
@@ -128,6 +136,20 @@ return {
           command = "fish-lsp",
           filetypes = { "fish" },
           args = { "start" },
+        },
+        rust_analyzer = {
+          settings = rust_settings,
+          root_dir = function(fname)
+            local root_patterns = require("lspconfig").util.root_pattern("Cargo.toml", "rust-project.json")
+            local root_dir = root_patterns(fname)
+
+            if root_dir and root_dir:find "demo_code" then
+              return nil
+            else
+              return root_dir
+            end
+          end,
+          single_file_support = true,
         },
         -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
       },
@@ -166,6 +188,11 @@ return {
       mappings = {
         n = {
           gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+          gd = { function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+          gD = { function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
+          gr = { function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+          gI = { function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+          gy = { function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
 
           ["<A-k>"] = {
             function()
@@ -176,23 +203,23 @@ return {
             desc = "Hover",
           },
 
-          ["<Leader>lR"] = {
-            function() require("snacks").picker.lsp_references() end,
-            desc = "References",
-          },
+          -- ["<Leader>lR"] = {
+          --   function() require("snacks").picker.lsp_references() end,
+          --   desc = "References",
+          -- },
 
           ["<Leader>ls"] = {
-            function() require("snacks").picker.lsp_symbols() end,
+            function() Snacks.picker.lsp_symbols() end,
             desc = "Symbols",
           },
 
           ["<Leader>lS"] = {
-            function() require("snacks").picker.lsp_workspace_symbols() end,
+            function() Snacks.picker.lsp_workspace_symbols() end,
             desc = "Workspace Symbols",
           },
 
           ["<Leader>lc"] = {
-            function() require("snacks").picker.lsp_config() end,
+            function() Snacks.picker.lsp_config() end,
             desc = "Lsp Config",
           },
 
@@ -237,35 +264,18 @@ return {
       },
       -- A custom `on_attach` function to be run after the default `on_attach` function
       -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
-      on_attach = function(client, bufnr)
-        -- this would disable semanticTokensProvider for all clients
-        -- client.server_capabilities.semanticTokensProvider = nil
-      end,
+      -- on_attach = function(client, bufnr)
+      --   -- this would disable semanticTokensProvider for all clients
+      --   -- client.server_capabilities.semanticTokensProvider = nil
+      -- end,
     },
   },
 
   {
     "mrcjkb/rustaceanvim",
     opts = function(_, opts)
-      opts.server = {
-        default_config = rust_settings,
-        root_dir = function(fname)
-          local root_patterns = require("lspconfig").util.root_pattern("Cargo.toml", "rust-project.json")
-          local root_dir = root_patterns(fname)
-
-          if root_dir and root_dir:find "demo_code" then
-            return nil
-          else
-            return root_dir
-          end
-        end,
-        single_file_support = true,
-      }
-
-      opts.tools = {
-        float_win_config = {
-          border = "rounded",
-        },
+      opts.tools.float_win_config = {
+        border = "rounded",
       }
     end,
   },

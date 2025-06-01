@@ -62,54 +62,26 @@ vim.keymap.set(
   { silent = true, buffer = bufnr, desc = "Join Lines" }
 )
 
-vim.keymap.set(
-  "n",
-  "<leader>lf",
-  function() vim.lsp.buf.format() end,
-  { silent = true, buffer = bufnr, desc = "Foramat" }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>lf",
+--   function() vim.lsp.buf.format() end,
+--   { silent = true, buffer = bufnr, desc = "Foramat" }
+-- )
 
-vim.keymap.set(
-  "n",
-  "<leader>lr",
-  function() vim.lsp.buf.rename() end,
-  { silent = true, buffer = bufnr, desc = "Rename" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>lR",
-  function() require("snacks").picker.lsp_references() end,
-  { silent = true, buffer = bufnr, desc = "References" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>ls",
-  function() require("snacks").picker.lsp_symbols() end,
-  { silent = true, buffer = bufnr, desc = "Symbol" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>lS",
-  function() require("snacks").picker.lsp_workspace_symbols() end,
-  { silent = true, buffer = bufnr, desc = "Workspace Symbol" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>lc",
-  function() require("snacks").picker.lsp_config() end,
-  { silent = true, buffer = bufnr, desc = "Lsp Config" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>la",
-  function() vim.cmd.RustLsp "codeAction" end,
-  { silent = true, buffer = bufnr, desc = "Code Action" }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>lr",
+--   function() vim.lsp.buf.rename() end,
+--   { silent = true, buffer = bufnr, desc = "Rename" }
+-- )
+--
+-- vim.keymap.set(
+--   "n",
+--   "<leader>la",
+--   function() vim.cmd.RustLsp "codeAction" end,
+--   { silent = true, buffer = bufnr, desc = "Code Action" }
+-- )
 
 vim.keymap.set(
   "n",
