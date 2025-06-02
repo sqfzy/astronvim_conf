@@ -58,24 +58,31 @@ local themes = {
     dusk = {},
     night = { "solarized-osaka" },
   },
-}
-local function choose_theme_by_time(scheme)
-  local hr = tonumber(os.date("%H", os.time()))
 
-  if hr > 6 and hr <= 9 then
-    vim.opt.background = "light"
-    return random_from_table(scheme.dawn)
-  elseif hr > 9 and hr <= 16 then
-    vim.opt.background = "light"
-    return random_from_table(scheme.day)
-  elseif hr > 16 and hr <= 21 then
-    vim.opt.background = "dark"
-    return random_from_table(scheme.dusk)
-  else
-    vim.opt.background = "dark"
-    return random_from_table(scheme.night)
-  end
-end
+  astrotheme = {
+    dawns = { "astrolight" },
+    days = { "astrolight" },
+    dusk = { "astrodark" },
+    night = { "astromars" },
+  },
+}
+-- local function choose_theme_by_time(scheme)
+--   local hr = tonumber(os.date("%H", os.time()))
+--
+--   if hr > 6 and hr <= 9 then
+--     vim.opt.background = "light"
+--     return random_from_table(scheme.dawn)
+--   elseif hr > 9 and hr <= 16 then
+--     vim.opt.background = "light"
+--     return random_from_table(scheme.day)
+--   elseif hr > 16 and hr <= 21 then
+--     vim.opt.background = "dark"
+--     return random_from_table(scheme.dusk)
+--   else
+--     vim.opt.background = "dark"
+--     return random_from_table(scheme.night)
+--   end
+-- end
 
 local function choose_theme_by_time_from_all(scheme)
   local hr = tonumber(os.date "%H")
@@ -129,27 +136,100 @@ return {
           -- TelescopePromptTitle = { ctermbg = 0 },
           -- TelescopePromptTitle = { ctermbg = 0 },
           -- TelescopePromptTitle = { ctermbg = 0 },
-          NeoTreeNormal = { ctermbg = 0 },
-          NeoTreeNormalNC = { ctermbg = 0 },
-          NeoTreeFloatNormal = { ctermbg = 0 },
-          NeoTreeFloatTitle = { ctermbg = 0 },
-          NeoTreeFloatBorder = { ctermbg = 0 },
-          TerminalNormal = { ctermbg = 0 },
-          TerminalBorder = { ctermbg = 0 },
-          WinBar = { ctermbg = 0 },
-          WinBarNC = { ctermbg = 0 },
-          TabLine = { ctermbg = 0 }, -- tab not choose
-          TabLineFill = { ctermbg = 0 },
-          TabLineSel = { ctermbg = 0 }, -- tab choosed
-          Float = { ctermbg = 0 },
-          FloatBorder = { ctermbg = 0 },
-          NormalFloat = { ctermbg = 0 },
-          StatusLine = { ctermbg = 0 },
-          StatusLineNC = { ctermbg = 0 },
-          WhichKeyFloat = { ctermbg = 0 },
-          WhichKeyBorder = { ctermbg = 0 },
-          FloatTitle = { ctermbg = 0 },
+          -- NeoTreeNormal = { ctermbg = 0 },
+          -- NeoTreeNormalNC = { ctermbg = 0 },
+          -- NeoTreeFloatNormal = { ctermbg = 0 },
+          -- NeoTreeFloatTitle = { ctermbg = 0 },
+          -- NeoTreeFloatBorder = { ctermbg = 0 },
+          -- TerminalNormal = { ctermbg = 0 },
+          -- TerminalBorder = { ctermbg = 0 },
+          -- WinBar = { ctermbg = 0 },
+          -- WinBarNC = { ctermbg = 0 },
+          -- TabLine = { ctermbg = 0 }, -- tab not choose
+          -- TabLineFill = { ctermbg = 0 },
+          -- TabLineSel = { ctermbg = 0 }, -- tab choosed
+          -- Float = { ctermbg = 0 },
+          -- FloatBorder = { ctermbg = 0 },
+          -- NormalFloat = { ctermbg = 0 },
+          -- StatusLine = { ctermbg = 0 },
+          -- StatusLineNC = { ctermbg = 0 },
+          -- WhichKeyFloat = { ctermbg = 0 },
+          -- WhichKeyBorder = { ctermbg = 0 },
+          -- FloatTitle = { ctermbg = 0 },
           LspInlayHint = { fg = "#848cb5" },
+
+          -- Normal
+          Normal = { bg = "none" },
+          SignColumn = { bg = "none" },
+          FoldColumn = { bg = "none" },
+          NormalFloat = { bg = "none" },
+          NormalNC = { bg = "none" },
+          NormalSB = { bg = "none" },
+          FloatBorder = { bg = "none" },
+          FloatTitle = { fg = "#F2F3F5", bg = "none" },
+          -- WinBar
+          WinBar = { bg = "none" },
+          WinSeparator = { fg = "#F2F3F5", bg = "none" },
+          WinBarNC = { bg = "none" },
+          WhichKeyFloat = { bg = "none" },
+          -- Telescope
+          SnacksBorder = { bg = "none" },
+          SnacksPromptTitle = { bg = "none" },
+          SnacksPromptBorder = { bg = "none" },
+          SnacksNormal = { bg = "none" },
+          -- Diagnosis
+          DiagnosticVirtualTextHint = { fg = "#F2F3F5", bg = "none" },
+          DiagnosticVirtualTextWarn = { fg = "#e0af68", bg = "none" },
+          DiagnosticVirtualTextInfo = { fg = "#9ece6a", bg = "none" },
+          DiagnosticVirtualTextError = { fg = "#bd2c00", bg = "none" },
+          -- NeoTree
+          NeoTreeNormal = { bg = "none" },
+          NeoTreeNormalNC = { bg = "none" },
+          NeoTreeTabInactive = { bg = "none" },
+          NeoTreeTabSeperatorActive = { fg = "#F2F3F5", bg = "none" },
+          NeoTreeTabSeperatorInactive = { fg = "#F2F3F5", bg = "none" },
+          NvimTreeTabSeperatorActive = { fg = "#F2F3F5", bg = "none" },
+          NvimTreeTabSeperatorInactive = { fg = "#F2F3F5", bg = "none" },
+          MiniTabLineFill = { fg = "#F2F3F5", bg = "none" },
+          -- Spectre
+          DiffChange = { fg = "#F2F3F5", bg = "#050a30" },
+          DiffDelete = { fg = "#F2F3F5", bg = "#bd2c00" },
+          -- StatusLine
+          StatusLine = { fg = "#F2F3F5", bg = "none" },
+          StatusLineNC = { fg = "#F2F3F5", bg = "none" },
+          StatusLineTerm = { fg = "#F2F3F5", bg = "none" },
+          StatusLineTermNC = { fg = "#F2F3F5", bg = "none" },
+          VertSplit = { fg = "#F2F3F5", bg = "none" },
+          -- QuickFixLine
+          QuickFixLine = { bg = "none" },
+          -- TabLine
+          TabLine = { bg = "none" },
+          TabLineSel = { bg = "none" },
+          TabLineFill = { bg = "none" },
+          -- Cursor
+          CursorLineNr = { bg = "none" },
+          CursorLine = { bg = "none" },
+          ColorColumn = { bg = "none" },
+          -- Search
+          Search = { fg = "red" },
+          IncSearch = { fg = "red" },
+          -- Pmenu
+          Pmenu = { bg = "none" },
+          PmenuSel = { bg = "none" },
+          PmenuSbar = { bg = "none" },
+          PmenuThumb = { bg = "none" },
+          -- Notifications
+          NotifyINFOBody = { bg = "none" },
+          NotifyWARNBody = { bg = "none" },
+          NotifyERRORBody = { bg = "none" },
+          NotifyDEBUGBody = { bg = "none" },
+          NotifyTRACEBody = { bg = "none" },
+          NotifyINFOBorder = { bg = "none" },
+          NotifyWARNBorder = { bg = "none" },
+          NotifyERRORBorder = { bg = "none" },
+          NotifyDEBUGBorder = { bg = "none" },
+          NotifyTRACEBorder = { bg = "none" },
+          NotifyBackground = { bg = "#000000" },
         },
         astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
           -- Normal = { bg = "#000000" },
@@ -257,7 +337,6 @@ return {
           enabled = false,
           silent = true, -- set to true to not show a message if hover is not available
           view = nil, -- when nil, use defaults from documentation
-          ---@type NoiceViewOptions
           opts = {}, -- merged with defaults from documentation
         },
         -- 与 lsp_signature.nvim 冲突
@@ -270,7 +349,6 @@ return {
             throttle = 50, -- Debounce lsp signature help request by 50ms
           },
           view = nil, -- when nil, use defaults from documentation
-          ---@type NoiceViewOptions
           opts = {}, -- merged with defaults from documentation
         },
       },

@@ -124,6 +124,7 @@ return {
       },
       -- enable servers that you already have installed without mason
       servers = {
+        "nushell"
         -- "pyright"
       },
       -- customize language server configuration options passed to `lspconfig`

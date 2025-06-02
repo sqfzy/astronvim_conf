@@ -41,6 +41,7 @@ return {
   { import = "astrocommunity.test.neotest" },
   -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  -- { import = "astrocommunity.color.transparent-nvim" },
 
   -- {import = "astrocommunity.completion.copilot-lua-cmp"}
   -- import/override with your plugins folder
