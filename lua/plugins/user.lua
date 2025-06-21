@@ -133,7 +133,7 @@ return {
       { "<leader>s/", function() Snacks.picker.search_history() end, desc = "Search History" },
       { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
       { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-      { "<leader>s:", function() Snacks.picker.command_history() end, desc = "Command History" },
+      { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
       { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
       { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
       { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
@@ -149,7 +149,7 @@ return {
       { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
       { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
       { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
-      { "<leader>sc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+      { "<leader>st", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
       { "<leader>sn", function() Snacks.picker.notifications() end, desc = "Notification History" },
     },
   },
@@ -158,7 +158,28 @@ return {
 
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
+    lazy = false,
+    opts = {
+      modes = {
+        char = {
+          -- 将 char_actions 设置为以下函数
+          char_actions = function(motion)
+            return {
+              -- 按下相同的键会继续朝同一个方向搜索
+              [motion] = "next",
+              -- 按下大小写相反的键会朝相反方向搜索
+              [motion:match "%l" and motion:upper() or motion:lower()] = "prev",
+            }
+          end,
+        },
+      },
+      rainbow = {
+        -- 启用彩虹模式
+        enabled = true,
+        --  颜色的步进和阴影
+        shade = 5,
+      },
+    },
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },

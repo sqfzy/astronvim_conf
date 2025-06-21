@@ -168,7 +168,7 @@ return { -- override nvim-cmp plugin
         cvs = false,
         ["."] = true,
       },
-      copilot_model = "gpt-4o-copilot",
+      -- copilot_model = "gpt-4o-copilot",
       -- copilot_node_command = "node",
       -- server_opts_overrides = {},
     },

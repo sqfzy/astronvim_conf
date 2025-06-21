@@ -45,12 +45,12 @@ local themes = {
     night = { "everforest" },
   },
 
-  kanagawa = {
-    dawns = { "kanagawa-lotus" },
-    days = { "kanagawa-lotus" },
-    dusk = { "kanagawa-wave" },
-    night = { "kanagawa-dragon" },
-  },
+  -- kanagawa = {
+  --   dawns = { "kanagawa-lotus" },
+  --   days = { "kanagawa-lotus" },
+  --   dusk = { "kanagawa-wave" },
+  --   night = { "kanagawa-dragon" },
+  -- },
 
   osaka = {
     dawns = {},
@@ -166,10 +166,10 @@ return {
           NormalNC = { bg = "none" },
           NormalSB = { bg = "none" },
           FloatBorder = { bg = "none" },
-          FloatTitle = { fg = "#F2F3F5", bg = "none" },
+          FloatTitle = { bg = "none" },
           -- WinBar
           WinBar = { bg = "none" },
-          WinSeparator = { fg = "#F2F3F5", bg = "none" },
+          WinSeparator = { bg = "none" },
           WinBarNC = { bg = "none" },
           WhichKeyFloat = { bg = "none" },
           -- Telescope
@@ -178,28 +178,28 @@ return {
           SnacksPromptBorder = { bg = "none" },
           SnacksNormal = { bg = "none" },
           -- Diagnosis
-          DiagnosticVirtualTextHint = { fg = "#F2F3F5", bg = "none" },
-          DiagnosticVirtualTextWarn = { fg = "#e0af68", bg = "none" },
-          DiagnosticVirtualTextInfo = { fg = "#9ece6a", bg = "none" },
-          DiagnosticVirtualTextError = { fg = "#bd2c00", bg = "none" },
+          DiagnosticVirtualTextHint = { bg = "none" },
+          DiagnosticVirtualTextWarn = { bg = "none" },
+          DiagnosticVirtualTextInfo = { bg = "none" },
+          DiagnosticVirtualTextError = { bg = "none" },
           -- NeoTree
           NeoTreeNormal = { bg = "none" },
           NeoTreeNormalNC = { bg = "none" },
           NeoTreeTabInactive = { bg = "none" },
-          NeoTreeTabSeperatorActive = { fg = "#F2F3F5", bg = "none" },
-          NeoTreeTabSeperatorInactive = { fg = "#F2F3F5", bg = "none" },
-          NvimTreeTabSeperatorActive = { fg = "#F2F3F5", bg = "none" },
-          NvimTreeTabSeperatorInactive = { fg = "#F2F3F5", bg = "none" },
-          MiniTabLineFill = { fg = "#F2F3F5", bg = "none" },
+          NeoTreeTabSeperatorActive = { bg = "none" },
+          NeoTreeTabSeperatorInactive = { bg = "none" },
+          NvimTreeTabSeperatorActive = { bg = "none" },
+          NvimTreeTabSeperatorInactive = { bg = "none" },
+          MiniTabLineFill = { bg = "none" },
           -- Spectre
-          DiffChange = { fg = "#F2F3F5", bg = "#050a30" },
-          DiffDelete = { fg = "#F2F3F5", bg = "#bd2c00" },
+          -- DiffChange = { fg = "#F2F3F5", bg = "#050a30" },
+          -- DiffDelete = { fg = "#F2F3F5", bg = "#bd2c00" },
           -- StatusLine
-          StatusLine = { fg = "#F2F3F5", bg = "none" },
-          StatusLineNC = { fg = "#F2F3F5", bg = "none" },
-          StatusLineTerm = { fg = "#F2F3F5", bg = "none" },
-          StatusLineTermNC = { fg = "#F2F3F5", bg = "none" },
-          VertSplit = { fg = "#F2F3F5", bg = "none" },
+          StatusLine = { bg = "none" },
+          StatusLineNC = { bg = "none" },
+          StatusLineTerm = { bg = "none" },
+          StatusLineTermNC = { bg = "none" },
+          VertSplit = { bg = "none" },
           -- QuickFixLine
           QuickFixLine = { bg = "none" },
           -- TabLine
@@ -214,10 +214,10 @@ return {
           Search = { fg = "red" },
           IncSearch = { fg = "red" },
           -- Pmenu
-          Pmenu = { bg = "none" },
-          PmenuSel = { bg = "none" },
-          PmenuSbar = { bg = "none" },
-          PmenuThumb = { bg = "none" },
+          -- Pmenu = { bg = "none" },
+          -- PmenuSel = { bg = "none" },
+          -- PmenuSbar = { bg = "none" },
+          -- PmenuThumb = { bg = "none" },
           -- Notifications
           NotifyINFOBody = { bg = "none" },
           NotifyWARNBody = { bg = "none" },
